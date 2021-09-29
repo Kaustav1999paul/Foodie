@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/drawable/faded_background.xml" value="0.19054054054054054" />
+        <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/drawable/first_item_drawable.xml" value="0.19054054054054054" />
+        <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/drawable/heading_background.xml" value="0.19054054054054054" />
         <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/drawable/splash.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_details.xml" value="0.17657657657657658" />
         <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/layout/activity_recipe_list.xml" value="0.17297297297297298" />
         <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/layout/dialog_layout.xml" value="0.17657657657657658" />
+        <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/layout/empty_layout.xml" value="0.17657657657657658" />
         <entry key="..\:/Users/kaust/AndroidStudioProjects/Foodie/app/src/main/res/layout/item_layout.xml" value="0.25" />
       </map>
     </option>

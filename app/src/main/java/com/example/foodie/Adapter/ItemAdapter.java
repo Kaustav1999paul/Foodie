@@ -21,6 +21,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private Context context;
     private ArrayList<FoodItems> list;
     private OnItemClickListener mListener;
+    private final int N  =1 ;
 
     public interface OnItemClickListener {
         void onItemClickUP(int position);
@@ -39,27 +40,43 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_layout, parent, false);
-        return new ItemViewHolder(v);
+        View v;
+
+        if (viewType==0){
+            v = LayoutInflater.from(context).inflate(R.layout.empty_layout, parent, false);
+        }else {
+            v = LayoutInflater.from(context).inflate(R.layout.item_layout, parent, false);
+        }
+
+        return new ItemViewHolder(v.getRootView());
     }
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        FoodItems foodItems =list.get(position);
-        String imageURL = foodItems.getImage();
-        String title = foodItems.getLabel();
+        if (position<N){
+            return;
+        }else {
+            FoodItems foodItems =list.get(position-N);
+            String imageURL = foodItems.getImage();
+            String title = foodItems.getLabel();
 
-        Glide.with(context).load(imageURL).into(holder.food_image);
-        holder.title.setText(title);
-        double cal = foodItems.getCalories();
-        int calories = (int) Math.round(cal);
-        String ca = String.valueOf(calories);
-        holder.calories.setText(ca + " kcal");
+            Glide.with(context).load(imageURL).into(holder.food_image);
+            holder.title.setText(title);
+            double cal = foodItems.getCalories();
+            int calories = (int) Math.round(cal);
+            String ca = String.valueOf(calories);
+            holder.calories.setText(ca + " kcal");
+        }
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list.size() + N;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position <N ? 0 : 1;
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder{
@@ -79,7 +96,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     if (mListener != null){
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
-                            mListener.onItemClickUP(position);
+                            if (position+N != N){
+                                mListener.onItemClickUP(position-N);
+                            }
                         }
                     }
                 }

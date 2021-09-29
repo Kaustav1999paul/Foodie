@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="220dp"
+    android:layout_height="220dp"
+    android:background="@drawable/first_item_drawable">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/heading_background"
+        android:gravity="center"
+        android:paddingHorizontal="10dp"
+        android:paddingTop="50dp"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="10dp"
+        android:text="Chicken\n Recipes"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
