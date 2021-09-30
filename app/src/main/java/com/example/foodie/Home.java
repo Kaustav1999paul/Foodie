@@ -83,7 +83,7 @@ public class Home extends AppCompatActivity implements ItemAdapter.OnItemClickLi
                         int totalTime = recipe.getInt("totalTime");
                         double calories = recipe.getDouble("calories");
 
-                        paneerArrayList.add(new FoodItems(title, image, uri,totalTime, calories, " Paneer \nRecipe"));
+                        paneerArrayList.add(new FoodItems(title, image, uri,totalTime, calories, " Paneer\nRecipe"));
                     }
 
                     paneerAdapter = new ItemAdapter(Home.this, paneerArrayList);
