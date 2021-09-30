@@ -20,11 +20,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     private Context context;
     private ArrayList<FoodItems> list;
-    private OnItemClickListener mListener;
+    private OnItemClickListener mListener, mPaneerListener;
     private final int N  =1 ;
 
     public interface OnItemClickListener {
         void onItemClickUP(int position);
+        void OnItemPaneerClick(int position);
+    }
+
+
+    public void setOnItemPaneerClickListener(OnItemClickListener listener){
+        mPaneerListener = listener;
     }
 
     public void setOnItemClickListener(OnItemClickListener listener){
@@ -54,7 +60,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         if (position<N){
-            return;
+            FoodItems foodItems =list.get(N);
+            holder.group.setText(foodItems.getGroup());
         }else {
             FoodItems foodItems =list.get(position-N);
             String imageURL = foodItems.getImage();
@@ -82,14 +89,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public class ItemViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView food_image;
-        public TextView title, calories;
+        public TextView title, calories, group;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             food_image = itemView.findViewById(R.id.food_image);
             title = itemView.findViewById(R.id.title);
             calories = itemView.findViewById(R.id.calories);
-
+            group = itemView.findViewById(R.id.group);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -98,6 +105,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                         if (position != RecyclerView.NO_POSITION){
                             if (position+N != N){
                                 mListener.onItemClickUP(position-N);
+                            }
+                        }
+                    }
+
+                    if (mPaneerListener!=null){
+                        int pos = getAdapterPosition();
+                        if (pos != RecyclerView.NO_POSITION){
+                            if (pos+N != N){
+                                mPaneerListener.OnItemPaneerClick(pos-N);
                             }
                         }
                     }

@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodie">
         <activity
-            android:name=".Details"
-            android:exported="true" />
-        <activity
             android:name=".Home"
             android:exported="true"
             android:theme="@style/FullScreen" />

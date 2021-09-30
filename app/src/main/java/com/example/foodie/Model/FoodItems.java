@@ -1,16 +1,25 @@
 package com.example.foodie.Model;
 
 public class FoodItems {
-    private String label, image, url;
+    private String label, image, url, group;
     private int totalTime;
     private double calories;
 
-    public FoodItems(String label, String image, String url, int totalTime, double calories) {
+    public FoodItems(String label, String image, String url, int totalTime, double calories,String group) {
         this.label = label;
         this.image = image;
         this.url = url;
         this.totalTime = totalTime;
         this.calories = calories;
+        this.group = group;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     public String getUrl() {
